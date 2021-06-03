@@ -1,0 +1,52 @@
+$font:'Nunito', sans-serif;
+$font-color:#3d3d3d;
+$main-color:#f99a97;
+$primary-color:#eac3ca;
+$secondary-color:#fbf1f6;
+$last-color:#f3f9f8;
+
+@function em($pixel, $contexto: 16) {
+    @return $pixel / $contexto + em;
+}
+
+@mixin type-1($size) {
+    font-family: $font-1;
+    @if $size == 16 {
+        font-size: em(16);
+        line-height: em(16, 16);
+    }
+    @else if $size == 18 {
+        font-size: em(18);
+        line-height: em(20, 18);
+    }
+    @else if $size == 24 {
+        font-size: em(24);
+        line-height: em(24, 24);
+    }
+    @else if $size == 42 {
+        font-size: em(42);
+        line-height: em(20, 20);
+    }
+}
+
+$l-device: 960px;
+$m-device: 760px;
+$s-device: 480px;
+
+@mixin d($size) {
+    @if $size == l {
+        @media screen and (min-width: #{$l-device}) {
+            @content;
+        }
+    }
+    @else if $size == m {
+        @media screen and (min-width: #{$m-device}) and (max-width: $l-device - 1) {
+            @content;
+        }
+    }    
+    @else if $size == s {
+        @media screen and (max-width: $m-device - 1) {
+            @content;
+        }
+    }    
+}
