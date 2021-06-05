@@ -1,0 +1,13 @@
+main {
+    @include display;
+
+    
+}
+.main-pic {
+    @include display;
+    
+    max-width: 200px;
+    img{
+        border-radius: 50%;
+    }
+}

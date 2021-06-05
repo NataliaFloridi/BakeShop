@@ -38,17 +38,17 @@ $sm-device: 480px;
 @mixin device($size) {
 
     @if $size == lg {
-        @media screen and (min-width: #{$l-device}) {
+        @media screen and (min-width: #{$lg-device}) {
             @content;
         }
     }
     @else if $size == md {
-        @media screen and (min-width: #{$m-device}) and (max-width: $l-device - 1) {
+        @media screen and (min-width: #{$md-device}) and (max-width: $lg-device - 1) {
             @content;
         }
     }    
     @else if $size == sm {
-        @media screen and (max-width: $m-device - 1) {
+        @media screen and (max-width: $md-device - 1) {
             @content;
         }
     }    
@@ -57,7 +57,14 @@ $sm-device: 480px;
 @mixin headerfooter {
     background-position: center;
     background-size: cover;
+    background-repeat: no-repeat;
     height: 14em;
     opacity: 75%;
     width: 100%;
+}
+
+@mixin display {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; 
 }
