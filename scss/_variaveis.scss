@@ -1,9 +1,10 @@
 $font-1:'Nunito', sans-serif;
 $font-color:#3d3d3d;
 $main-color:#f99a97;
+$last-color:#f3f9f8;
 $primary-color:#eac3ca;
 $secondary-color:#fbf1f6;
-$last-color:#f3f9f8;
+
 
 @function em($pixel, $contexto: 16) {
     @return $pixel / $contexto + em;
@@ -11,6 +12,7 @@ $last-color:#f3f9f8;
 
 @mixin type-1($size) {
     font-family: $font-1;
+
     @if $size == 16 {
         font-size: em(16);
         line-height: em(16, 16);
@@ -29,22 +31,23 @@ $last-color:#f3f9f8;
     }
 }
 
-$l-device: 960px;
-$m-device: 760px;
-$s-device: 480px;
+$lg-device: 960px;
+$md-device: 760px;
+$sm-device: 480px;
 
-@mixin d($size) {
-    @if $size == l {
+@mixin device($size) {
+
+    @if $size == lg {
         @media screen and (min-width: #{$l-device}) {
             @content;
         }
     }
-    @else if $size == m {
+    @else if $size == md {
         @media screen and (min-width: #{$m-device}) and (max-width: $l-device - 1) {
             @content;
         }
     }    
-    @else if $size == s {
+    @else if $size == sm {
         @media screen and (max-width: $m-device - 1) {
             @content;
         }
@@ -54,7 +57,7 @@ $s-device: 480px;
 @mixin headerfooter {
     background-position: center;
     background-size: cover;
-    width: 100%;
     height: 14em;
     opacity: 75%;
+    width: 100%;
 }
