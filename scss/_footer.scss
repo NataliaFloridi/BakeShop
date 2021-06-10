@@ -1,4 +1,11 @@
 footer {
-    @include headerfooter; 
-    background-image: url('../img/footer.png');
+    font-family: $font-1;
+    font-size: 0.62em;
+    margin: 0 auto;
+    text-align: center;
+
+    address, a{
+        color: $color-1;
+        text-decoration: none;
+    }
 }

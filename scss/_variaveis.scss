@@ -1,10 +1,11 @@
 $font-1:'Nunito', sans-serif;
-$font-color:#3d3d3d;
-$main-color:#f99a97;
-$last-color:#f3f9f8;
-$primary-color:#eac3ca;
-$secondary-color:#fbf1f6;
-
+$color-1:#3d3d3d;
+$color-2:#f99a97;
+$color-3:#eac3ca;
+$color-4:#fbf1f6;
+$color-5:#f3f9f8;
+$color-6:#5e1609;
+$color-7:#ff8fa3;
 
 @function em($pixel, $contexto: 16) {
     @return $pixel / $contexto + em;
@@ -13,7 +14,11 @@ $secondary-color:#fbf1f6;
 @mixin type-1($size) {
     font-family: $font-1;
 
-    @if $size == 16 {
+    @if $size == 14 {
+        font-size: em(14);
+        line-height: em(16, 14);
+    }
+    @else if $size == 16 {
         font-size: em(16);
         line-height: em(16, 16);
     }
@@ -24,10 +29,6 @@ $secondary-color:#fbf1f6;
     @else if $size == 24 {
         font-size: em(24);
         line-height: em(24, 24);
-    }
-    @else if $size == 42 {
-        font-size: em(42);
-        line-height: em(20, 20);
     }
 }
 
@@ -52,19 +53,4 @@ $sm-device: 480px;
             @content;
         }
     }    
-}
-
-@mixin headerfooter {
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 14em;
-    opacity: 75%;
-    width: 100%;
-}
-
-@mixin display {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between; 
 }

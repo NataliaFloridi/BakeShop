@@ -1,14 +1,17 @@
-body, h1, h2, h3, h4, p, a {
+body{
+  background: $color-4;
+
+  h1, ul, li, a, p{
     margin: 0;
     padding: 0;
   }
+}
   
-  img {
+img {
     display: block;
     max-width: 100%;
-  }
+}
   
-  * {
-    border: 1px solid palevioletred;
+* {
     box-sizing: border-box;
-  }
+}
